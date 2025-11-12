@@ -7,7 +7,8 @@
  */
 function convertToObject(sourceString) {
   const result = sourceString
-    .split('\n')
+    .replace(/\s*\n\s*/g, ' ')
+    .split(/;|\n/)
     .map((line) => line.trim())
     .filter((item) => item !== '' && item !== ';');
 
@@ -25,6 +26,7 @@ function convertToObject(sourceString) {
 
     resultObj[key.trim()] = value.trim();
   }
+  console.log(resultObj);
 
   return resultObj;
 }
