@@ -7,7 +7,7 @@
  */
 function convertToObject(sourceString) {
   const lines = sourceString
-    .split(/'\n'|;/)
+    .split(';')
     .map((line) => line.trim())
     .filter((line) => line !== '' && line.indexOf(':') !== -1 && line !== ';');
 
