@@ -7,7 +7,7 @@
  */
 function convertToObject(sourceString) {
   const lines = sourceString
-    .split(/[;\n]/)
+    .split(/[;]/)
     .map((line) => line.trim())
     .filter((line) => line !== '' && line.indexOf(':') !== -1 && line !== ';');
 
@@ -16,15 +16,8 @@ function convertToObject(sourceString) {
   lines.forEach((line) => {
     const i = line.indexOf(':');
 
-    if (i === -1) {
-      return;
-    }
-
     const key = line.slice(0, i).trim();
-    const value = line
-      .slice(i + 1)
-      .replace(/;$/, '')
-      .trim();
+    const value = line.slice(i + 1).trim();
 
     style[key] = value;
   });
